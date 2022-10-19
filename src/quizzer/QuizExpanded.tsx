@@ -11,7 +11,13 @@ export const QuizExpanded = ({
     editQuiz,
     resetView,
     switchEdit
-}: {}) => {
+}: {
+    quiz: Quiz; 
+    editQuiz: (id: number, q: Quiz) => void;
+    deleteQuiz: (id: number) => void;
+    switchEdit: () => void;
+    resetView: () => void;
+}) => {
     const filteredQuestions = quiz.questionList.filter(
         (q: Question): boolean =>
             (quiz.published && q.published) || !quiz.published

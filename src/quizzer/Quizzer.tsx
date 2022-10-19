@@ -6,6 +6,7 @@ import { AddQuizModal } from "./AddQuizModal";
 
 import "./Quizzer.css";
 import sample from "../data/quizzes.json";
+//import { Button } from "react-bootstrap";
 
 const QUIZZES = sample.map(
     (quiz): Quiz => ({
@@ -18,7 +19,7 @@ const QUIZZES = sample.map(
             })
         )
     })
-);
+); 
 
 export const Quizzer = () => {
     const [quizzes, setQuizzes] = useState<Quiz[]>(QUIZZES);
@@ -31,6 +32,7 @@ export const Quizzer = () => {
     }
 
     function addQuiz(title: string, body: string) {
+        //const newQuiz = {title: title, body: body};
         setQuizzes([...quizzes, newQuiz]);
     }
 

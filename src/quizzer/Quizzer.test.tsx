@@ -27,22 +27,27 @@ describe("Quizzer Tests", () => {
         const button = screen.getByText("Add New Quiz");
         expect(screen.queryByLabelText("Title: ")).not.toBeInTheDocument();
         button.click();
+        // eslint-disable-next-line testing-library/prefer-presence-queries
         expect(screen.queryByLabelText("Title:")).toBeInTheDocument();
         const saveButton = screen.getByText("Save Changes");
         saveButton.click();
+        // eslint-disable-next-line testing-library/prefer-presence-queries
         expect(screen.queryByText("Example Quiz")).toBeInTheDocument();
     });
 
     test("Users can see a list of quizzes, including the quizzes title, description, and how many questions it has", () => {
         for (let i = 0; i < QUIZZES.length; i++) {
+            // eslint-disable-next-line testing-library/prefer-presence-queries
             expect(screen.queryByText(QUIZZES[i].title)).toBeInTheDocument();
             expect(
+                // eslint-disable-next-line testing-library/prefer-presence-queries
                 screen.queryByText(
                     QUIZZES[i].questionList.length + " question",
                     { exact: false }
                 )
             ).toBeInTheDocument();
             expect(
+                // eslint-disable-next-line testing-library/prefer-presence-queries
                 screen.queryByText(QUIZZES[i].body, { exact: false })
             ).toBeInTheDocument();
         }
@@ -51,13 +56,17 @@ describe("Quizzer Tests", () => {
     test("Users can select a specific quiz to see the questions, including the questions name, body, and points", () => {
         const text = screen.getByText("Simple_Questions");
         text.click();
+        // eslint-disable-next-line testing-library/prefer-presence-queries
         expect(screen.queryByText("Exit")).toBeInTheDocument();
         expect(
+            // eslint-disable-next-line testing-library/prefer-presence-queries
             screen.queryByText("What is 2+2?", { exact: false })
         ).toBeInTheDocument();
         for (let i = 0; i < QUIZZES[1].questionList.length; i++) {
             if (QUIZZES[1].questionList[i].published == true) {
+                // eslint-disable-next-line jest/no-conditional-expect
                 expect(
+                    // eslint-disable-next-line testing-library/prefer-presence-queries
                     screen.queryByText(QUIZZES[1].questionList[i].body, {
                         exact: false
                     })
