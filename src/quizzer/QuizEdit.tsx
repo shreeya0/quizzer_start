@@ -25,9 +25,7 @@ export const QuizEdit = ({
         setNewQuiz({
             ...newQuiz,
             questionList: newQuiz.questionList.map(
-                (q: Question, idx: number): Question => {
-                    if(idx === questionId) 
-                }
+                (q: Question): Question => (q.id === questionId) ? newQuestion: q
             )
         });
     };
@@ -35,7 +33,7 @@ export const QuizEdit = ({
     const removeQuestion = (questionId: number) => {
         setNewQuiz({
             ...newQuiz,
-            questionList: newQuiz.questionList.filter(
+            questionList: newQuiz.questionList.filter((q: Question): boolean => q.id !== questionId
             )
         });
     };
