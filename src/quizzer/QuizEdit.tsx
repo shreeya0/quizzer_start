@@ -25,6 +25,9 @@ export const QuizEdit = ({
         setNewQuiz({
             ...newQuiz,
             questionList: newQuiz.questionList.map(
+                (q: Question, idx: number): Question => {
+                    if(idx === questionId) 
+                }
             )
         });
     };
