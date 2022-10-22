@@ -214,18 +214,14 @@ export const QuestionEdit = ({
                         <Button
                             disabled={index === 0}
                             className="swap_button"
-                            onClick={() => {
-                                swapQuestion(index, index - 1);
-                            }}
+                            onClick={() => swapQuestion(index, index - 1)}
                         >
                             ▲
                         </Button>
                         <Button
                             disabled={index === lastIndex}
                             className="swap_button"
-                            onClick={() => {
-                                swapQuestion(index, index + 1);
-                            }}
+                            onClick={() => swapQuestion(index, index + 1) }
                         >
                             ▼
                         </Button>
