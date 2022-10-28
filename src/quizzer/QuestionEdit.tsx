@@ -221,7 +221,8 @@ export const QuestionEdit = ({
                         <Button
                             disabled={index === lastIndex}
                             className="swap_button"
-                            onClick={() => swapQuestion(index, index + 1) }
+                            onClick={() => swapQuestion(index, index + 1)
+                             }
                         >
                             ▼
                         </Button>
