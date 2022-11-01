@@ -1,0 +1,103 @@
+
+> tasks@0.1.0 test
+> react-scripts test
+
+Browserslist: caniuse-lite is outdated. Please run:
+  npx browserslist@latest --update-db
+  Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
+FAIL src/quizzer/Quizzer.test.tsx
+  ● Console
+
+    console.error
+      Warning: Encountered two children with the same key, `5`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.
+          at div
+          at QuizList (/home/runner/work/quizzer_start/quizzer_start/src/quizzer/QuizList.tsx:9:5)
+          at div
+          at Quizzer (/home/runner/work/quizzer_start/quizzer_start/src/quizzer/Quizzer.tsx:25:35)
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
+      at warnOnInvalidKey (node_modules/react-dom/cjs/react-dom.development.js:13620:11)
+      at reconcileChildrenArray (node_modules/react-dom/cjs/react-dom.development.js:13651:21)
+      at reconcileChildFibers (node_modules/react-dom/cjs/react-dom.development.js:14125:14)
+      at reconcileChildren (node_modules/react-dom/cjs/react-dom.development.js:16997:28)
+      at updateFragment (node_modules/react-dom/cjs/react-dom.development.js:17294:3)
+      at beginWork (node_modules/react-dom/cjs/react-dom.development.js:19102:14)
+
+  ● Quizzer Tests › Users can filter the questions in a list so that only published questions are shown
+
+    expect(element).not.toBeChecked()
+
+    Received element is checked:
+      <input checked="" class="form-check-input" data-testid="Quiz Published" id="is-published_check" type="checkbox" />
+
+      155 |         const quizPublished = screen.getByTestId("Quiz Published");
+      156 |         quizPublished.click();
+    > 157 |         expect(quizPublished).not.toBeChecked();
+          |                                   ^
+      158 |
+      159 |         const saveButton = screen.getByText("Save");
+      160 |         saveButton.click();
+
+      at Object.<anonymous> (src/quizzer/Quizzer.test.tsx:157:35)
+
+  ● Quizzer Tests › Users can add a new quiz question
+
+    expect(element).not.toBeChecked()
+
+    Received element is checked:
+      <input checked="" class="form-check-input" data-testid="Quiz Published" id="is-published_check" type="checkbox" />
+
+      198 |         const quizPublished = screen.getByTestId("Quiz Published");
+      199 |         quizPublished.click();
+    > 200 |         expect(quizPublished).not.toBeChecked();
+          |                                   ^
+      201 |
+      202 |         const saveButton = screen.getByText("Save");
+      203 |         saveButton.click();
+
+      at Object.<anonymous> (src/quizzer/Quizzer.test.tsx:200:35)
+
+  ● Quizzer Tests › Quiz questions can be of AT LEAST two types: a short answer question or multiple choice question 
+
+    expect(received).toBeTruthy()
+
+    Received: false
+
+      247 |             "question_type_dropdown_0"
+      248 |         );
+    > 249 |         expect(options[0].selected).toBeTruthy();
+          |                                     ^
+      250 |         expect(options[1].selected).toBeFalsy();
+      251 |
+      252 |         const saveButton = screen.getByText("Save");
+
+      at Object.<anonymous> (src/quizzer/Quizzer.test.tsx:249:37)
+
+PASS src/App.test.tsx
+-------------------|---------|----------|---------|---------|--------------------------------------------------
+File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s                                
+-------------------|---------|----------|---------|---------|--------------------------------------------------
+All files          |    81.2 |    82.75 |   75.67 |   80.41 |                                                  
+ src               |   66.66 |       50 |      50 |   66.66 |                                                  
+  App.tsx          |   66.66 |       50 |      50 |   66.66 | 19                                               
+ src/interfaces    |       0 |        0 |       0 |       0 |                                                  
+  question.ts      |       0 |        0 |       0 |       0 |                                                  
+  quiz.ts          |       0 |        0 |       0 |       0 |                                                  
+ src/quizzer       |    81.5 |    85.18 |   76.38 |   80.71 |                                                  
+  AddQuizModal.tsx |   64.28 |      100 |      40 |   64.28 | 35-52                                            
+  QuestionEdit.tsx |   41.93 |    66.66 |    37.5 |   41.93 | 28-31,40-41,50-51,58-60,68-70,93,166,200,224,249 
+  QuizCard.tsx     |     100 |       80 |     100 |     100 | 32                                               
+  QuizEdit.tsx     |   85.18 |      100 |   73.33 |      84 | 34-36,70,100                                     
+  QuizExpanded.tsx |     100 |    85.71 |     100 |     100 | 74                                               
+  QuizList.tsx     |     100 |      100 |     100 |     100 |                                                  
+  QuizQuestion.tsx |     100 |    85.71 |     100 |     100 | 24-31                                            
+  QuizView.tsx     |     100 |      100 |     100 |     100 |                                                  
+  Quizzer.tsx      |     100 |      100 |     100 |     100 |                                                  
+-------------------|---------|----------|---------|---------|--------------------------------------------------
+
+Test Suites: 1 failed, 1 passed, 2 total
+Tests:       3 failed, 12 passed, 15 total
+Snapshots:   0 total
+Time:        4.589 s
+Ran all test suites.
